@@ -2,7 +2,7 @@ library(shiny)
 source("UsefulFunctions.R")
 
 
-# Define UI for application that draws a histogram
+# Define UI for application
 ui <- fluidPage(
     
     # Application title
@@ -23,7 +23,7 @@ ui <- fluidPage(
                          helpText(intro4())
                      ),
                      
-                     # Show a plot of the generated distribution
+                     # Main panel
                      mainPanel(
                          checkboxInput("example_data", label = "Upload dataset", value = FALSE),
                          conditionalPanel(condition = "input.example_data == true", 
@@ -66,11 +66,11 @@ ui <- fluidPage(
                  )
         )
     )
-    # Sidebar with a slider input for number of bins 
+     
     
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output) {
     
     data1 <- eventReactive(input$compute,{
